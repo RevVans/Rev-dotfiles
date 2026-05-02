@@ -24,3 +24,6 @@
 ## Installation
 Just clone this repository and move the files to its designated place.<br>
 `git clone https://github.com/RevVans/Rev-dotfiles.git`
+
+## Wallpaper Source
+https://www.pixiv.net/en/artworks/100277012
