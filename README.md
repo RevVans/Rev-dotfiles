@@ -16,6 +16,7 @@
 - Hypridle
 - Bash
 - Kitty
+- Starship
 - Waybar
 - Rofi
 - Dunst
