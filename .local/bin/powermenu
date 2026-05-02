@@ -1,0 +1,20 @@
+#!/bin/sh
+
+option=$(printf "  Shutdown\n  Restart\n󰤄  Suspend\n  Logout\n󰌾  Lock" | rofi -dmenu -theme "/home/revandra/.config/rofi/power.rasi")
+
+clean_option=$(echo "$option" | tr -dc '[:alpha:]')
+
+case "$clean_option" in
+    "Shutdown")
+        systemctl poweroff ;;
+    "Restart")
+        systemctl reboot ;;
+    "Suspend")
+        systemctl suspend ;;
+    "Logout")
+        hyprctl dispatch exit ;;
+    "Lock")
+        hyprlock ;;
+    *)
+    	exit 0 ;;
+esac

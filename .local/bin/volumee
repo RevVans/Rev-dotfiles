@@ -1,0 +1,34 @@
+#!/bin/bash
+# changeVolume
+
+# Set notification tag to replace old notifications
+TAG="volume_notif"
+
+# Volume change amount
+STEP="5%"
+
+case $1 in
+    up)
+        wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ $STEP+
+        ;;
+    down)
+        wpctl set-volume @DEFAULT_AUDIO_SINK@ $STEP-
+        ;;
+    mute)
+        wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+        ;;
+esac
+
+# Get current volume
+volume=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+
+# Check if muted
+if [[ "$volume" == *"MUTED"* ]]; then
+    dunstify -a "Volume" -r 2593 -u low -i audio-volume-muted "Muted" -h string:x-dunst-stack-tag:$TAG
+else
+    # Extract percentage
+    vol=$(echo "$volume" | awk '{print int($2*100)}')
+    
+    # Send notification with progress bar
+    dunstify -a "Volume" -r 2593 -u low -i audio-volume-high "Volume: ${vol}%" -h int:value:$vol -h string:x-dunst-stack-tag:$TAG
+fi
