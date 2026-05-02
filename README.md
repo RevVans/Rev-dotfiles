@@ -11,6 +11,9 @@
 
 ## Dependencies
 - Hyprland
+- Hyprpaper
+- Hyprlock
+- Hypridle
 - Bash
 - Kitty
 - Waybar
