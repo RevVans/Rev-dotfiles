@@ -10,7 +10,7 @@
 ![hyprlock](assets/hyprlock_shot.png)
 
 > [!WARNING]
-> My dotfiles are **laptop specific**. Despite trying to make a flexible installation script, some of the things might not work! You better install everything manually based on your needs, or use this repository as an inspiration.
+> My dotfiles are **laptop specific**. Some of the things might not work and need some tinkering! You better install everything manually based on your needs, or use this repository as an inspiration.
 
 ## Dependencies
 - Hyprland
